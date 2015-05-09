@@ -5,7 +5,7 @@ export default class Palette extends React.Component {
     render() {
         var colors = this.props.colors.map((color) => {
             return (
-                <ColorCell color={color} />
+                <ColorCell {...color} />
             );
         });
 

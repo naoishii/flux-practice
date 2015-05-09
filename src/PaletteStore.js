@@ -5,7 +5,20 @@ class PaletteStore extends Emitter {
         super();
 
         this.color = "#666";
-        this.colorList = ["#fcc", "#cfc", "#ccf", "#ffc", "#fcf", "#cff"];
+        this.colorList = [
+            {
+                colorName: "赤",
+                colorCode: "#fcc"
+            },
+            {
+                colorName: "緑",
+                colorCode: "#cfc",
+            },
+            {
+                colorName: "青",
+                colorCode: "#ccf"
+            }
+        ];
 
         // <--- observe event.
         dispatcher.on("changeColor", this.onChangeColor.bind(this));

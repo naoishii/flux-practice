@@ -6,12 +6,12 @@ export default class ColorCell extends React.Component {
     }
 
     handleDragStart(ev) {
-         ev.dataTransfer.setData('color', this.props.color);
+         ev.dataTransfer.setData('color', this.props.colorCode);
     }
 
     render() {
         var styles = {
-            backgroundColor: this.props.color,
+            backgroundColor: this.props.colorCode,
             width: '100px',
             height: '100px'
         };
@@ -27,5 +27,6 @@ export default class ColorCell extends React.Component {
 }
 
 ColorCell.propTypes = {
-    color: React.PropTypes.string.isRequired
+    colorName: React.PropTypes.string.isRequired,
+    colorCode: React.PropTypes.string.isRequired
 };
