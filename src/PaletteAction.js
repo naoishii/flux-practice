@@ -6,10 +6,6 @@ export default class PaletteAction {
     }
 
     // "Emit" event ----> Store
-    countUp(data) {
-        this.dispatcher.emit("countUp", data);
-    }
-
     changeColor(data) {
         this.dispatcher.emit("changeColor", data);
     }

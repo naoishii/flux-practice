@@ -3,9 +3,7 @@ import Emitter from "./EventEmitter.js"
 class PaletteStore extends Emitter {
     constructor(dispatcher) {
         super();
-
-        this.color = "#666";
-        this.colorList = [
+        var colorList = [
             {
                 colorName: "赤",
                 colorCode: "#fcc"
@@ -20,12 +18,13 @@ class PaletteStore extends Emitter {
             }
         ];
 
+        this.color = "#666";
+        this.colorList = colorList;
+        this.nextRequest = colorList[Math.floor( Math.random() * 3 )].colorName;
+        this.score = 0;
+
         // <--- observe event.
         dispatcher.on("changeColor", this.onChangeColor.bind(this));
-    }
-
-    getCount() {
-        return this.count;
     }
 
     getColor() {
@@ -36,13 +35,12 @@ class PaletteStore extends Emitter {
         return this.colorList;
     }
 
-    onCountUp(count) {
-        if (this.count === count) {
-            return;
-        }
-        this.count = count;
-        // emit "CHANGE" ---> self
-        this.emit("CHANGE");
+    getNextRequest() {
+        return this.nextRequest;
+    }
+
+    getScore() {
+        return this.score;
     }
 
     onChangeColor(color) {

@@ -20,6 +20,7 @@ export default class DropZone extends React.Component {
 
         return (
             <div
+                className="pure-u-1-3"
                 style={styles}
                 onDrop={this.handleDrop.bind(this)}
                 onDragOver={this.handleDragOver}

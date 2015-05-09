@@ -3,14 +3,14 @@ import ColorCell from "./colorCell.jsx"
 
 export default class Palette extends React.Component {
     render() {
-        var colors = this.props.colors.map((color) => {
+        var colors = this.props.colors.map((color, i) => {
             return (
-                <ColorCell {...color} />
+                <ColorCell {...color} key={i} />
             );
         });
 
         return (
-            <div>
+            <div className="pure-g">
                 {colors}
             </div>
         )

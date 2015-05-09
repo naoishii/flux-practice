@@ -13,7 +13,8 @@ export default class ColorCell extends React.Component {
         var styles = {
             backgroundColor: this.props.colorCode,
             width: '100px',
-            height: '100px'
+            height: '100px',
+            float: 'left'
         };
 
         return (
