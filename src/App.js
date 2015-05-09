@@ -1,11 +1,6 @@
 import React from "react"
-import Palette from "./components/palette.jsx"
-
-var colors = ['#fcc', '#cfc', '#ccf'];
+import Game from "./components/game.jsx"
 
 React.render(
-    <div>
-        <h1>hello world</h1>
-        <Palette colors={colors} />
-    </div>
+    <Game />
 , document.body);

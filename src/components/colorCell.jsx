@@ -5,6 +5,10 @@ export default class ColorCell extends React.Component {
         super();
     }
 
+    handleDragStart(ev) {
+         ev.dataTransfer.setData('color', this.props.color);
+    }
+
     render() {
         var styles = {
             backgroundColor: this.props.color,
@@ -13,11 +17,15 @@ export default class ColorCell extends React.Component {
         };
 
         return (
-            <div style={styles} />
+            <div
+                style={styles}
+                draggable="true"
+                onDragStart={this.handleDragStart.bind(this)}
+            />
         )
     }
 }
 
 ColorCell.propTypes = {
-    color: React.PropTypes.string
+    color: React.PropTypes.string.isRequired
 };
