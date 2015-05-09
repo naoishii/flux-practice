@@ -13,7 +13,8 @@ export default class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            color: store.getColor()
+            color: store.getColor(),
+            colorList: store.getColorList()
         };
 
         store.on("CHANGE", () => {
@@ -30,12 +31,11 @@ export default class Game extends React.Component {
     }
 
     render() {
-        var colors = ['#fcc', '#cfc', '#ccf'];
 
         return (
             <div>
                 <h1>hello world</h1>
-                <Palette colors={colors} />
+                <Palette colors={this.state.colorList} />
                 <DropZone
                     onChangeColor={this.handleChangeColor}
                     color={this.state.color}

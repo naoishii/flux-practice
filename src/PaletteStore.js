@@ -5,6 +5,8 @@ class PaletteStore extends Emitter {
         super();
 
         this.color = "#666";
+        this.colorList = ["#fcc", "#cfc", "#ccf", "#ffc", "#fcf", "#cff"];
+
         // <--- observe event.
         dispatcher.on("changeColor", this.onChangeColor.bind(this));
     }
@@ -15,6 +17,10 @@ class PaletteStore extends Emitter {
 
     getColor() {
         return this.color;
+    }
+
+    getColorList() {
+        return this.colorList;
     }
 
     onCountUp(count) {
