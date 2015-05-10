@@ -10,7 +10,7 @@ export default class Palette extends React.Component {
         });
 
         return (
-            <div className="pure-g">
+            <div className="pure-g" style={{width: "300px"}}>
                 {colors}
             </div>
         )

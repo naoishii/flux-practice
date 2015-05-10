@@ -6,8 +6,12 @@ export default class DropZone extends React.Component {
     }
 
     handleDrop(ev) {
-        var color = ev.dataTransfer.getData('color');
-        this.props.onChangeColor(color);
+        var color = ev.dataTransfer.getData('color'),
+            data = {
+                dropedColor: color,
+                expect: this.props.expect
+            };
+        this.props.onChangeColor(data);
     }
 
     render() {
@@ -20,10 +24,9 @@ export default class DropZone extends React.Component {
 
         return (
             <div
-                className="pure-u-1-3"
                 style={styles}
                 onDrop={this.handleDrop.bind(this)}
-                onDragOver={this.handleDragOver}
+                onDragOver={this.handleDragOver.bind(this)}
             />
         )
     }
@@ -31,5 +34,6 @@ export default class DropZone extends React.Component {
 
 DropZone.propTypes = {
     onChangeColor: React.PropTypes.func.isRequired,
+    expect: React.PropTypes.object.isRequired,
     color: React.PropTypes.string.isRequired
 }

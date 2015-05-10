@@ -12,13 +12,12 @@ export default class ColorCell extends React.Component {
     render() {
         var styles = {
             backgroundColor: this.props.colorCode,
-            width: '100px',
             height: '100px',
-            float: 'left'
         };
 
         return (
             <div
+                className="pure-u-1-3"
                 style={styles}
                 draggable="true"
                 onDragStart={this.handleDragStart.bind(this)}

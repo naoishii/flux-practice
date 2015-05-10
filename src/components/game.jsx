@@ -27,7 +27,13 @@ export default class Game extends React.Component {
     }
 
     _change() {
-        this.setState({color: store.getColor()});
+        this.setState(
+            {
+                color: store.getColor(),
+                score: store.getScore(),
+                nextRequest: store.getNextRequest()
+            }
+        );
     }
 
     handleChangeColor(data) {
@@ -40,13 +46,16 @@ export default class Game extends React.Component {
             <div>
                 <Palette colors={this.state.colorList} />
                 <div className="pure-g">
-                    <Score />
+                    <Score 
+                        score={this.state.score}
+                    />
                     <NextColor 
                         request={this.state.nextRequest}
                     />
                 </div>
                 <DropZone
                     onChangeColor={this.handleChangeColor}
+                    expect={this.state.nextRequest}
                     color={this.state.color}
                 />
             </div>

@@ -20,7 +20,7 @@ class PaletteStore extends Emitter {
 
         this.color = "#666";
         this.colorList = colorList;
-        this.nextRequest = colorList[Math.floor( Math.random() * 3 )].colorName;
+        this.nextRequest = colorList[Math.floor( Math.random() * 3 )];
         this.score = 0;
 
         // <--- observe event.
@@ -36,18 +36,19 @@ class PaletteStore extends Emitter {
     }
 
     getNextRequest() {
-        return this.nextRequest;
+        return this.colorList[Math.floor( Math.random() * 3 )];
     }
 
     getScore() {
         return this.score;
     }
 
-    onChangeColor(color) {
-        if (this.color === color) {
-            return;
+    onChangeColor(data) {
+        if (data.dropedColor === data.expect.colorCode) {
+            this.score += 1;
         }
-        this.color = color;
+
+        this.color = data.dropedColor;
         // emit "CHANGE" ---> self
         this.emit("CHANGE");
     }

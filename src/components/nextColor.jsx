@@ -7,12 +7,12 @@ export default class NextColor extends React.Component {
             <div
                 className="pure-u-1-2"
             >
-                {this.props.request}
+                {this.props.request.colorName}
             </div>
         );
     }
 }
 
 NextColor.propTypes = {
-    request: React.PropTypes.string.isRequired
+    request: React.PropTypes.object.isRequired
 }
