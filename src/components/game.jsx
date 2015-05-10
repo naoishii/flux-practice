@@ -55,7 +55,7 @@ export default class Game extends React.Component {
                 </div>
                 <DropZone
                     onChangeColor={this.handleChangeColor}
-                    expect={this.state.nextRequest}
+                    expect={this.state.nextRequest.expect}
                     color={this.state.color}
                 />
             </div>

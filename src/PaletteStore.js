@@ -5,15 +5,15 @@ class PaletteStore extends Emitter {
         super();
         var colorList = [
             {
-                colorName: "赤",
+                colorName: "あか",
                 colorCode: "#fcc"
             },
             {
-                colorName: "緑",
+                colorName: "みどり",
                 colorCode: "#cfc",
             },
             {
-                colorName: "青",
+                colorName: "あお",
                 colorCode: "#ccf"
             }
         ];
@@ -36,7 +36,10 @@ class PaletteStore extends Emitter {
     }
 
     getNextRequest() {
-        return this.colorList[Math.floor( Math.random() * 3 )];
+        return {
+            expect: this.colorList[Math.floor( Math.random() * 3 )],
+            dummy: this.colorList[Math.floor( Math.random() * 3 )]
+        };
     }
 
     getScore() {

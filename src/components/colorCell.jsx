@@ -6,6 +6,7 @@ export default class ColorCell extends React.Component {
     }
 
     handleDragStart(ev) {
+        console.log(ev);
          ev.dataTransfer.setData('color', this.props.colorCode);
     }
 
@@ -20,6 +21,7 @@ export default class ColorCell extends React.Component {
                 className="pure-u-1-3"
                 style={styles}
                 draggable="true"
+                onTouchMove={this.handleDragStart.bind(this)}
                 onDragStart={this.handleDragStart.bind(this)}
             />
         )
