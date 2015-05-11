@@ -43,7 +43,7 @@ export default class Game extends React.Component {
     render() {
 
         return (
-            <div>
+            <div style={{width: "300px"}}>
                 <Palette colors={this.state.colorList} />
                 <div className="pure-g">
                     <Score 
